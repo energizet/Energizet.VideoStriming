@@ -1,0 +1,57 @@
+﻿@{
+	ViewData["Title"] = "Watch";
+}
+
+<div id="root"></div>
+<script>
+
+	let root = document.getElementById('root');
+	let mediaSource = new MediaSource();
+	let videoSource;
+	let id;
+
+	(async () => {
+		let params = new URLSearchParams(location.search);
+		id = params.get('id');
+
+		let video = await fetch(`//localhost:7099/api/VideoInfo/${id}`).then(d => d.json());
+		render(video.data);
+
+		loadVideo(id, 360);
+	})();
+
+	function render(video){
+		root.addCustomElement('div', {class: ['d-flex', 'flex-column', 'gap-2'], children: [
+			//['video', {class: 'bg-black', controls: true, src: URL.createObjectURL(mediaSource)}],
+			['video', {class: 'bg-black', controls: true, src: 'https://localhost:7046/videos/source.mp4'}],
+			['div', {innerText: video.name}],
+			['div', {innerText: video.discription}],
+		]});
+	}
+
+	async function loadVideo(id, quality){
+		let video = await fetch(`//localhost:7099/api/VideoInfo/${id}/${quality}`).then(d => d.json());
+		video = video.data;
+
+		videoSource = mediaSource.addSourceBuffer('video/mp4;codecs="avc1.42E01E, mp4a.40.2"');
+		for(let part of video.parts){
+			//await saveToSourceBuffer(`//localhost:7099/api/Download/${id}/${quality}/${part.index}`);
+		}
+		//await saveToSourceBuffer(`//localhost:7099/api/Download/${id}/${quality}/0`);
+		await saveToSourceBuffer('https://localhost:7046/videos/source.mp4');
+	}
+
+	async function saveToSourceBuffer(url){
+		let buffer = await fetch(url).then(d => d.arrayBuffer());
+		videoSource.appendBuffer(buffer);
+	}
+
+	function videoOnload({ target }){
+		if	(target.isPlayed == null){
+			target.isPlayed = false;
+		}
+
+		target.isPlayed ? target.pause() : target.play();
+		target.isPlayed = !target.isPlayed;
+	}
+</script>

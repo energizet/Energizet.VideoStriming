@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Energizet.VideoStriming", "Energizet.VideoStriming\Energizet.VideoStriming.csproj", "{F6052CE2-E0B6-4CA0-B657-68A8616A2F8A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Energizet.VideoStriming.Upload", "Energizet.VideoStriming.Upload\Energizet.VideoStriming.Upload.csproj", "{3629D41B-5EF1-4D0F-9461-84D42252F7DE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Energizet.VideoStriming.Download", "Energizet.VideoStriming.Download\Energizet.VideoStriming.Download.csproj", "{FF06AD90-2439-495C-9D9D-5D4F89294283}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Energizet.VideoStriming.Common", "Energizet.VideoStriming.Common\Energizet.VideoStriming.Common.csproj", "{CAA14BD6-1867-4106-BCEA-96BF19D70B16}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Energizet.VideoStriming.DB", "Energizet.VideoStriming.DB\Energizet.VideoStriming.DB.csproj", "{5DC49D67-BFAB-4F23-B346-5D877E9546BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Energizet.VideoStriming.Front", "Energizet.VideoStriming.Front\Energizet.VideoStriming.Front.csproj", "{2AE9BE93-C7EA-470B-9FE1-0E4A6A6DD3F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6052CE2-E0B6-4CA0-B657-68A8616A2F8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6052CE2-E0B6-4CA0-B657-68A8616A2F8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6052CE2-E0B6-4CA0-B657-68A8616A2F8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6052CE2-E0B6-4CA0-B657-68A8616A2F8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3629D41B-5EF1-4D0F-9461-84D42252F7DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3629D41B-5EF1-4D0F-9461-84D42252F7DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3629D41B-5EF1-4D0F-9461-84D42252F7DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3629D41B-5EF1-4D0F-9461-84D42252F7DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF06AD90-2439-495C-9D9D-5D4F89294283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF06AD90-2439-495C-9D9D-5D4F89294283}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF06AD90-2439-495C-9D9D-5D4F89294283}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF06AD90-2439-495C-9D9D-5D4F89294283}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAA14BD6-1867-4106-BCEA-96BF19D70B16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAA14BD6-1867-4106-BCEA-96BF19D70B16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAA14BD6-1867-4106-BCEA-96BF19D70B16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAA14BD6-1867-4106-BCEA-96BF19D70B16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DC49D67-BFAB-4F23-B346-5D877E9546BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DC49D67-BFAB-4F23-B346-5D877E9546BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DC49D67-BFAB-4F23-B346-5D877E9546BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DC49D67-BFAB-4F23-B346-5D877E9546BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AE9BE93-C7EA-470B-9FE1-0E4A6A6DD3F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AE9BE93-C7EA-470B-9FE1-0E4A6A6DD3F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AE9BE93-C7EA-470B-9FE1-0E4A6A6DD3F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AE9BE93-C7EA-470B-9FE1-0E4A6A6DD3F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {14B4FDCC-8ECE-4EEF-9033-C1BB0E683954}
+	EndGlobalSection
+EndGlobal

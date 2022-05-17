@@ -1,0 +1,87 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.15" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Energizet.VideoStriming.Common\Energizet.VideoStriming.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CSVideoConverter">
+      <HintPath>libs\CSVideoConverter.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="CSPlugins\FFmpeg\x64\avcodec-58.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="CSPlugins\FFmpeg\x64\avdevice-58.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="CSPlugins\FFmpeg\x64\avfilter-7.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="CSPlugins\FFmpeg\x64\avformat-58.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="CSPlugins\FFmpeg\x64\avutil-56.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="CSPlugins\FFmpeg\x64\ffmpeg.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="CSPlugins\FFmpeg\x64\ffplay.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="CSPlugins\FFmpeg\x64\ffprobe.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="CSPlugins\FFmpeg\x64\swresample-3.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="CSPlugins\FFmpeg\x64\swscale-5.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="CSPlugins\FFmpeg\x86\avcodec-58.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="CSPlugins\FFmpeg\x86\avdevice-58.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="CSPlugins\FFmpeg\x86\avfilter-7.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="CSPlugins\FFmpeg\x86\avformat-58.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="CSPlugins\FFmpeg\x86\avutil-56.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="CSPlugins\FFmpeg\x86\ffmpeg.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="CSPlugins\FFmpeg\x86\ffplay.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="CSPlugins\FFmpeg\x86\ffprobe.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="CSPlugins\FFmpeg\x86\swresample-3.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="CSPlugins\FFmpeg\x86\swscale-5.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

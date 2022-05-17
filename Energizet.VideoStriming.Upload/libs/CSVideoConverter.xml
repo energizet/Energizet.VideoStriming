@@ -1,0 +1,926 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CSVideoConverter</name>
+    </assembly>
+    <members>
+        <member name="T:CSCommand.NativeMethods">
+            <summary>
+            NativeMethods
+            </summary>
+        </member>
+        <member name="T:CSCommand.ThreadAccess">
+            <summary>
+            ThreadAccess
+            </summary>
+        </member>
+        <member name="T:CSCommand.Helper">
+            <summary>
+            Helper
+            </summary>
+        </member>
+        <member name="T:CSCommand.CommandLine">
+            <summary>
+            Send shell command line with arguments to the CMD prompt and receive data using C# / VB .NET.
+            </summary>
+        </member>
+        <member name="F:CSCommand.CommandLine._process">
+            <summary>
+            The process.
+            </summary>
+        </member>
+        <member name="F:CSCommand.CommandLine._processStartInfo">
+            <summary>
+            The process information.
+            </summary>
+        </member>
+        <member name="F:CSCommand.CommandLine._running">
+            <summary>
+            Running flag.
+            </summary>
+        </member>
+        <member name="P:CSCommand.CommandLine.Command">
+            <summary>
+            Set the command to operate
+            </summary>
+        </member>
+        <member name="P:CSCommand.CommandLine.Arguments">
+            <summary>
+            Set the arguments
+            </summary>
+        </member>
+        <member name="T:CSCommand.CommandLine.OperationProgressEventHandler">
+            <summary>
+            Operation progress handler.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:CSCommand.CommandLine.OperationProgress">
+            <summary>
+            Operation progress.
+            </summary>
+        </member>
+        <member name="T:CSCommand.CommandLine.OperationDoneEventHandler">
+            <summary>
+            Done progress handler.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:CSCommand.CommandLine.OperationDone">
+            <summary>
+            Done progress.
+            </summary>
+        </member>
+        <member name="T:CSCommand.CommandLine.OperationClosedEventHandler">
+            <summary>
+            Closed handler.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:CSCommand.CommandLine.OperationClosed">
+            <summary>
+            Closed progress.
+            </summary>
+        </member>
+        <member name="F:CSCommand.CommandLine.backgroundWorker">
+            <summary>
+            Background worker.
+            </summary>
+        </member>
+        <member name="P:CSCommand.CommandLine.InteractiveMode">
+            <summary>
+            InteractiveMode.
+            </summary>
+        </member>
+        <member name="M:CSCommand.CommandLine.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:CSCommand.CommandLine.OnOutputDataReceived(System.Object,System.Diagnostics.DataReceivedEventArgs)">
+            <summary>
+            On data received.
+            </summary>
+            <param name="sender">object</param>
+            <param name="e">DataReceivedEventArgs</param>
+        </member>
+        <member name="M:CSCommand.CommandLine.OnDone(System.Object,System.EventArgs)">
+            <summary>
+            On done.
+            </summary>
+            <param name="sender">object</param>
+            <param name="e">EventArgs</param>
+        </member>
+        <member name="M:CSCommand.CommandLine.StartAsyncStandard">
+            <summary>
+            Start async command and get the standard output.
+            </summary>
+            <returns>The results.</returns>
+        </member>
+        <member name="M:CSCommand.CommandLine.StartAsyncError">
+            <summary>
+            Start async command and get the error output.
+            </summary>
+            <returns>The results.</returns>
+        </member>
+        <member name="M:CSCommand.CommandLine.GetMainWindowHandle">
+            <summary>
+            GetMainWindowHandle.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CSCommand.CommandLine.CloseMainWindow">
+            <summary>
+            CloseMainWindow.
+            </summary>
+        </member>
+        <member name="M:CSCommand.CommandLine.Close">
+            <summary>
+            Close the process.
+            </summary>
+        </member>
+        <member name="M:CSCommand.CommandLine.Refresh">
+            <summary>
+            Refresh the process.
+            </summary>
+        </member>
+        <member name="M:CSCommand.CommandLine.Kill">
+            <summary>
+            Kill  the process.
+            </summary>
+        </member>
+        <member name="M:CSCommand.CommandLine.Abort">
+            <summary>
+            Abort the process.
+            </summary>
+        </member>
+        <member name="M:CSCommand.CommandLine.Suspend">
+            <summary>
+            Suspend (pause) the process.
+            </summary>
+        </member>
+        <member name="M:CSCommand.CommandLine.Resume">
+            <summary>
+            Resume (unpause) the process.
+            </summary>
+        </member>
+        <member name="M:CSCommand.CommandLine.Dispose">
+            <summary>
+            Dispose.
+            </summary>
+        </member>
+        <member name="M:CSCommand.CommandLine.backgroundWorker_DoWork(System.Object,System.ComponentModel.DoWorkEventArgs)">
+            <summary>
+            Run the operation in the background under a new _process.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:CSCommand.CommandLine.backgroundWorker_ProgressChanged(System.Object,System.ComponentModel.ProgressChangedEventArgs)">
+            <summary>
+            Update the user interface with the current progress.
+            </summary>
+            <param name="sender">The sender object</param>
+            <param name="e">ProgressChangedEventArgs</param>
+        </member>
+        <member name="M:CSCommand.CommandLine.backgroundWorker_RunWorkerCompleted(System.Object,System.ComponentModel.RunWorkerCompletedEventArgs)">
+            <summary>
+            Notification that the burn background thread has completed
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:CSPicPreview.PreviewWF.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CSPicPreview.PreviewWF.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CSPicPreview.PreviewWF.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:CSPicPreview.PreviewWPF">
+            <summary>
+            Interaction logic for PreviewWPF.xaml
+            </summary>
+            <summary>
+            PreviewWPF
+            </summary>
+        </member>
+        <member name="M:CSPicPreview.PreviewWPF.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Microncode.Lic.LicenseLib.CheckLicense(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Check the license of the library. If the registration is OK a MessageBox will be display with a message 'The registration is OK.', otherwise, a registration window will be display with an instructions of register the library.
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Disposition.Default">
+            <summary>
+            Default
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Disposition.Dub">
+            <summary>
+            Dub
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Disposition.Original">
+            <summary>
+            Original
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Disposition.Comment">
+            <summary>
+            Comment
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Disposition.Lyrics">
+            <summary>
+            Lyrics
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Disposition.Karaoke">
+            <summary>
+            Karaoke
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Disposition.Forced">
+            <summary>
+            Forced
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Disposition.HearingImpaired">
+            <summary>
+            HearingImpaired
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Disposition.VisualImpaired">
+            <summary>
+            VisualImpaired
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Disposition.CleanEffects">
+            <summary>
+            CleanEffects
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Disposition.AttachedPic">
+            <summary>
+            AttachedPic
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Disposition.TimedThumbnails">
+            <summary>
+            TimedThumbnails
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Format.Filename">
+            <summary>
+            Filename
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Format.NbStreams">
+            <summary>
+            NbStreams
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Format.NbPrograms">
+            <summary>
+            NbPrograms
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Format.FormatName">
+            <summary>
+            FormatName
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Format.FormatLongName">
+            <summary>
+            FormatLongName
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Format.StartTime">
+            <summary>
+            StartTime
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Format.Duration">
+            <summary>
+            Duration
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Format.Size">
+            <summary>
+            Size
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Format.BitRate">
+            <summary>
+            BitRate
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Format.ProbeScore">
+            <summary>
+            ProbeScore
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Format.Tags">
+            <summary>
+            Tags
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.ID3Tags.Title">
+            <summary>
+            ID3 title tag.
+            -metadata title="Adagio for Strings"
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.ID3Tags.Subtitle">
+            <summary>
+            ID3 subtitle tag.
+            -metadata TIT3="Op. 91"
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.ID3Tags.Comment">
+            <summary>
+            ID3 comment tag.
+            -metadata comment="Extra info text"
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.ID3Tags.Artist">
+            <summary>
+            ID3 artist tag.
+            -metadata artist="Yo Yo Ma/London Symphony"
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.ID3Tags.AlbumArtist">
+            <summary>
+            ID3 album artist tag.
+            -metadata album_artist="London Symphony"
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.ID3Tags.Album">
+            <summary>
+            ID3 album tag.
+            -metadata album="String Classics"
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.ID3Tags.Date">
+            <summary>
+            ID3 date tag.
+            -metadata date="2012"
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.ID3Tags.Track">
+            <summary>
+            ID3 track tag.
+            -metadata track="3/12" means track number 3 of 12.
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.ID3Tags.Genre">
+            <summary>
+            ID3 genre tag.
+            -metadata genre="Classical"
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.ID3Tags.Publisher">
+            <summary>
+            ID3 publisher tag.
+            -metadata publisher="London Publishing"
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.ID3Tags.EncodedBy">
+            <summary>
+            ID3 genre tag.
+            -metadata encoded_by="Telarc"
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.ID3Tags.Copyright">
+            <summary>
+            ID3 copyright tag.
+            -metadata copyright="Telarc"
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.ID3Tags.Composer">
+            <summary>
+            ID3 composer tag.
+            -metadata composer="J.S. Bach"
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.ID3Tags.Performer">
+            <summary>
+            ID3 performer tag.
+            -metadata performer="T. S. Miles"
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.ID3Tags.TIT1">
+            <summary>
+            ID3 TIT1 tag.
+            -metadata TIT1="The Classics"
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.ID3Tags.Disc">
+            <summary>
+            ID3 Disc tag.
+            -metadata disc="1/2" means disc number 1 of 2.
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.ID3Tags.TKEY">
+            <summary>
+            ID3 TKEY tag.
+            -metadata TKEY="G"
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.ID3Tags.TBPM">
+            <summary>
+            ID3 TBPM tag.
+            -metadata TBPM="120"
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.ID3Tags.Language">
+            <summary>
+            ID3 language tag.
+            -metadata language="eng"
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.ID3Tags.Encoder">
+            <summary>
+            ID3 encoder tag.
+            -metadata encoder="iTunes v10"
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.Index">
+            <summary>
+            Index
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.CodecName">
+            <summary>
+            CodecName
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.CodecLongName">
+            <summary>
+            CodecLongName
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.Profile">
+            <summary>
+            Profile
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.CodecType">
+            <summary>
+            CodecType
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.CodecTimeBase">
+            <summary>
+            CodecTimeBase
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.CodecTagString">
+            <summary>
+            CodecTagString
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.CodecTag">
+            <summary>
+            CodecTag
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.Width">
+            <summary>
+            Width
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.Height">
+            <summary>
+            Height
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.CodedWidth">
+            <summary>
+            CodedWidth
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.CodedHeight">
+            <summary>
+            CodedHeight
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.HasBFrames">
+            <summary>
+            HasBFrames
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.SampleAspectRatio">
+            <summary>
+            SampleAspectRatio
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.DisplayAspectRatio">
+            <summary>
+            DisplayAspectRatio
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.PixFmt">
+            <summary>
+            PixFmt
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.Level">
+            <summary>
+            Level
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.ColorRange">
+            <summary>
+            ColorRange
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.ColorSpace">
+            <summary>
+            ColorSpace
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.ColorTransfer">
+            <summary>
+            ColorTransfer
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.ColorPrimaries">
+            <summary>
+            ColorPrimaries
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.ChromaLocation">
+            <summary>
+            ChromaLocation
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.Refs">
+            <summary>
+            Refs
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.IsAvc">
+            <summary>
+            IsAvc
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.NalLengthSize">
+            <summary>
+            NalLengthSize
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.RFrameRate">
+            <summary>
+            RFrameRate
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.AvgFrameRate">
+            <summary>
+            AvgFrameRate
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.TimeBase">
+            <summary>
+            TimeBase
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.StartPts">
+            <summary>
+            StartPts
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.StartTime">
+            <summary>
+            StartTime
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.DurationTs">
+            <summary>
+            DurationTs
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.Duration">
+            <summary>
+            Duration
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.BitRate">
+            <summary>
+            BitRate
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.BitsPerRawSample">
+            <summary>
+            BitsPerRawSample
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Stream.NbFrames">
+            <summary>
+            NbFrames
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Tag.Key">
+            <summary>
+            Key
+            </summary>
+        </member>
+        <member name="P:CSMediaProperties.Tag.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="T:CSVideoConverter.VideoConverter">
+            <summary>
+            Convert many type of video and audio files.
+            </summary>
+        </member>
+        <member name="M:CSVideoConverter.VideoConverter.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:CSVideoConverter.VideoConverter.CheckLicense(System.Boolean)">
+            <summary>
+            Check the user license of the component. 
+            </summary>
+            <param name="DisplayRegistrationWindow">Display the registration form or not.</param>
+            <returns>True if the license is OK, false if not.</returns>
+        </member>
+        <member name="M:CSVideoConverter.VideoConverter.GetArgsID3Tags">
+            <summary>
+            Get the id3 tags arguments according to the id3 properties.
+            </summary>
+            <returns>A string of the arguments according to the properties.</returns>
+        </member>
+        <member name="M:CSVideoConverter.VideoConverter.SetID3Tags(CSMediaProperties.ID3Tags)">
+            <summary>
+            Set the ID3 tags of the destination media file.
+            </summary>
+            <param name="iD3Tags"></param>
+        </member>
+        <member name="M:CSVideoConverter.VideoConverter.SetPicView(System.Windows.Forms.PictureBox)">
+            <summary>
+            Set the picture box to display the converting preview.
+            </summary>
+            <param name="pictureBox"></param>
+        </member>
+        <member name="M:CSVideoConverter.VideoConverter.GetArgs">
+            <summary>
+            Get all arguments according to the library properties.
+            </summary>
+            <returns>A string of the arguments according to the properties.</returns>
+        </member>
+        <member name="M:CSVideoConverter.VideoConverter.GetArgsWin">
+            <summary>
+            Get the window arguments according to the properties.
+            </summary>
+            <returns>A string of the arguments according to the properties.</returns>
+        </member>
+        <member name="M:CSVideoConverter.VideoConverter.Open(System.String)">
+            <summary>
+            Open media file.
+            </summary>
+            <param name="MediaFile">Media file path and name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CSVideoConverter.VideoConverter.GetRegexValue(System.String,RegexPatterns.RegexKey,RegexPatterns.RegexGroup)">
+            <summary>
+            GetRegexValue
+            </summary>
+            <param name="line"></param>
+            <param name="regexKey"></param>
+            <param name="regexGroup"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CSVideoConverter.VideoConverter.Run">
+            <summary>
+            Run the operation.
+            </summary>
+        </member>
+        <member name="M:CSVideoConverter.VideoConverter.Abort">
+            <summary>
+            Abort the operation.
+            </summary>
+        </member>
+        <member name="M:CSVideoConverter.VideoConverter.Pause">
+            <summary>
+            Pause the operation.
+            </summary>
+        </member>
+        <member name="M:CSVideoConverter.VideoConverter.Resume">
+            <summary>
+            Resume (unpause) the operation.
+            </summary>
+        </member>
+        <member name="M:CSVideoConverter.VideoConverter.Dispose">
+            <summary>
+            Protected implementation of Dispose pattern.
+            </summary>
+        </member>
+        <member name="M:CSVideoConverter.VideoConverter.Dispose(System.Boolean)">
+            <summary>
+            Dispose
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:CSVideoConverter.VideoConverter.OperationOutputEventHandler">
+            <summary>
+            Operation output handler.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:CSVideoConverter.VideoConverter.OperationOutput">
+            <summary>
+            Operation output.
+            </summary>
+        </member>
+        <member name="T:CSVideoConverter.VideoConverter.OperationProgressEventHandler">
+            <summary>
+            Operation progress handler.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:CSVideoConverter.VideoConverter.OperationProgress">
+            <summary>
+            Operation progress.
+            </summary>
+        </member>
+        <member name="T:CSVideoConverter.VideoConverter.OperationDoneEventHandler">
+            <summary>
+            Operation done handler.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:CSVideoConverter.VideoConverter.OperationDone">
+            <summary>
+            Operation done.
+            </summary>
+        </member>
+        <member name="T:CSVideoConverter.VideoConverter.OperationStartEventHandler">
+            <summary>
+            Operation starts.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:CSVideoConverter.VideoConverter.OperationStart">
+            <summary>
+            Operation done.
+            </summary>
+        </member>
+        <member name="T:CSVideoConverter.VideoConverter.OperationClosedEventHandler">
+            <summary>
+            Closed handler.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:CSVideoConverter.VideoConverter.OperationClosed">
+            <summary>
+            Closed progress.
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.FFmpegLibsPath">
+            <summary>
+            The path and the file name of the ffmpeg.exe file with the libraries.
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.FileSource">
+            <summary>
+            Source file (-i).
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.FileDestination">
+            <summary>
+            Destination file.
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.FromTime">
+            <summary>
+            Start from 00:01:00 (-ss).
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.LengthTime">
+            <summary>
+            Start from 00:01:00 (-ss).
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.ArgsAdditional">
+            <summary>
+            Add additional argument to the command of the process.
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.ArgsDirect">
+            <summary>
+            Set your own arguments to the command of the process.
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.VideoCodec">
+            <summary>
+            Video codec. 'copy' will copy from source (-c:v).
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.VideoBitrate">
+            <summary>
+            Video bitrate (-b:v).
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.VideoFPS">
+            <summary>
+            VideoFPS Frames per second (-r).
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.VideoResolutionX">
+            <summary>
+            The x resolution (-s[x]).
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.VideoResolutionY">
+            <summary>
+            The y resolution (-s[y]).
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.AudioCodec">
+            <summary>
+            Audio codec (-c:a). 'copy' will copy from source.
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.AudioBitrate">
+            <summary>
+            Audio bitrate (-b:a).
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.AudioSamplerate">
+            <summary>
+            Audio samples (-ar).
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.AudioChannels">
+            <summary>
+            Audio channels (-ac).
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.UserName">
+            <summary>
+            The user name.
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.UserKey">
+            <summary>
+            The user key.
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.DispWinPixFmt">
+            <summary>
+            Display PixFmt (-pix_fmt).
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.DispWinSize">
+            <summary>
+            Display window size (-window_size).
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.DispWinX">
+            <summary>
+            Display window X (-window_x).
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.DispWinY">
+            <summary>
+            Display window Y (-window_y).
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.DispWinSDL">
+            <summary>
+            Display window F (-f sdl / -f sdl2).
+            </summary>
+        </member>
+        <member name="P:CSVideoConverter.VideoConverter.DispWinSDLName">
+            <summary>
+            Display window Name (- or "win name").
+            </summary>
+        </member>
+    </members>
+</doc>
