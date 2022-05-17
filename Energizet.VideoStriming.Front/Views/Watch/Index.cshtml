@@ -6,68 +6,42 @@
 <script>
 
 	let root = document.getElementById('root');
-	let mediaSource;
-	let audioSource, videoSource;
 	let id;
 
 	(async () => {
 		let params = new URLSearchParams(location.search);
 		id = params.get('id');
 
-		mediaSource = new MediaSource();
-		mediaSource.addEventListener('sourceopen', mediaOpened);
 		let video = await fetch(`//localhost:7099/api/VideoInfo/${id}`).then(d => d.json());
-		render(video.data);
+		let videoTag = createVideoTag(video.data);
+		render(video.data, videoTag);
 	})();
 
-	async function mediaOpened(){
-		mediaSource.removeEventListener("sourceopen", mediaOpened);
-
-		await loadVideo(id, 360);
+	function changeQuality({ target }, videoTag){
+		let time = videoTag.currentTime;
+		let source = videoTag.querySelector('source');
+		source.src = `//localhost:7099/api/Download/${id}/${target.value}`;
+		videoTag.load();
+		videoTag.play();
+		videoTag.currentTime = time;
 	}
 
-	function render(video){
+	function render(video, videoTag){
 		root.addCustomElement('div', {class: ['d-flex', 'flex-column', 'gap-2'], children: [
 			//['video', {class: 'bg-black', controls: true, src: URL.createObjectURL(mediaSource)}],
-			['video', {class: 'bg-black', controls: true, src: 'https://localhost:7099/api/Download/ce7b37b9-e5f0-4193-a7c3-8e43ec4d85e3/360/1'}],
+			videoTag,
 			//['video', {class: 'bg-black', controls: true, src: 'https://localhost:7046/videos/source1.mp4'}],
+			['select', {on: {change: (e) => changeQuality(e, videoTag)}, children: video.qualitys.map(quality => 
+				['option', {id: quality, innerText: quality}]
+			)}],
 			['div', {innerText: video.name}],
 			['div', {innerText: video.discription}],
 		]});
 	}
 
-	async function loadVideo(id, quality){
-		//let video = await fetch(`//localhost:7099/api/VideoInfo/${id}/${quality}`).then(d => d.json());
-		//video = video.data;
-
-		let video = {
-			parts: [0,1,2,3]
-		};
-		//mediaSource.duration = 10;
-		//audioSource = mediaSource.addSourceBuffer('audio/mp4;codecs=mp4a.40.2');
-		//videoSource = mediaSource.addSourceBuffer('video/mp4;codecs=avc1.640020');
-		videoSource = mediaSource.addSourceBuffer('application/x-mpegURL');
-		//await saveToSourceBuffer(`https://bitdash-a.akamaihd.net/content/MI201109210084_1/video/720_2400000/dash/init.mp4`);
-		for(let part of video.parts){
-			//await saveToSourceBuffer(`https://bitdash-a.akamaihd.net/content/MI201109210084_1/video/720_2400000/dash/segment_${part}.m4s`);
-			//await saveToSourceBuffer(`//localhost:7099/api/Download/${id}/${quality}/${part.index}`);
-		}
-
-		//await saveToSourceBuffer(`//localhost:7099/api/Download/${id}/${quality}/0`);
-		//await saveToSourceBuffer('https://localhost:7046/videos/source.mp4');
-	}
-
-	async function saveToSourceBuffer(url, source){
-		let buffer = await fetch(url).then(d => d.arrayBuffer());
-		source.appendBuffer(new Uint8Array(buffer));
-	}
-
-	function videoOnload({ target }){
-		if	(target.isPlayed == null){
-			target.isPlayed = false;
-		}
-
-		target.isPlayed ? target.pause() : target.play();
-		target.isPlayed = !target.isPlayed;
+	function createVideoTag(video){
+		return document.createCustomElement('video', {class: 'bg-black', controls: true, children: [
+				['source', {src: (video.qualitys.length > 0 ? `//localhost:7099/api/Download/${id}/${video.qualitys.sort((l, r) => l>r?1:-1)[0]}` : ''), type: 'video/mp4'}],
+			]});
 	}
 </script>

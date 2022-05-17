@@ -26,19 +26,32 @@
 		}
 	}
 
+	Element.prototype.addCustomElements = function (elements) {
+		elements.forEach(element => {
+			if (element instanceof Element) {
+				this.appendChild(element);
+			} else {
+				let view = this.addCustomElement(element[0], element[1]);
+				this.appendChild(view);
+			}
+		});
+	};
+
 	Element.prototype.addCustomElement = function (tag, options = null) {
-		let child = document.createElement(tag);
-		if (typeof options == 'object') {
-			Object.keys(options).forEach(key => addOption(child, key, options[key]));
-		}
+		let child = document.createCustomElement(tag, options);
 		this.appendChild(child);
 		return child;
 	};
 
-	Element.prototype.addCustomElements = function (elements) {
-		elements.forEach(element => {
-			let view = this.addCustomElement(element[0], element[1]);
-			this.appendChild(view);
-		});
+	Document.prototype.createCustomElement = function (tag, options = null) {
+		if (tag instanceof Element) {
+			return tag;
+		}
+
+		let child = document.createElement(tag);
+		if (typeof options == 'object') {
+			Object.keys(options).forEach(key => addOption(child, key, options[key]));
+		}
+		return child;
 	};
 })();

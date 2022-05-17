@@ -10,7 +10,6 @@ namespace Energizet.VideoStriming.Common.Models.FileInfo
 	{
 		public int Quality { get; set; }
 		public long Size { get; set; }
-		public IEnumerable<FilePart> Parts { get; set; }
 
 	}
 }

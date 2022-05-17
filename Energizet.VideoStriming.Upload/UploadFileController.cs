@@ -16,7 +16,7 @@ namespace Energizet.VideoStriming.Upload
 			_path = path;
 		}
 
-		public async Task<Func<Func<int, Format, long, Task>, Task>> UploadAsync(IFormFile file, Guid fileId)
+		public async Task<UploadCallbacks.SaveFiles> UploadAsync(IFormFile file, Guid fileId)
 		{
 			var tmpDirInfo = Directory.CreateDirectory($"{_path}tmp/");
 			var tmpFilePath = $"{tmpDirInfo.FullName}{fileId}";
@@ -38,10 +38,10 @@ namespace Energizet.VideoStriming.Upload
 			var filePath = $"{dirInfo.FullName}{fileName}";
 			File.Move(tmpFilePath, filePath);
 
-			return async (saveQuality) => await Convert(dirInfo.FullName, fileName, format, saveQuality);
+			return (saveQuality) => Convert(dirInfo.FullName, fileName, format, saveQuality);
 		}
 
-		private async Task Convert(string dirPath, string fileName, Format format, Func<int, Format, long, Task> saveQuality)
+		private async Task Convert(string dirPath, string fileName, Format format, UploadCallbacks.SaveQuality saveQuality)
 		{
 			if (format.Resolution.Y >= 360)
 			{
@@ -69,7 +69,7 @@ namespace Energizet.VideoStriming.Upload
 			}
 
 		}
-		private async Task Convert(string dirPath, string fileName, Format format, Point resolution, int fps, Func<int, Format, long, Task> saveQuality)
+		private async Task Convert(string dirPath, string fileName, Format format, Point resolution, int fps, UploadCallbacks.SaveQuality saveQuality)
 		{
 			var filePath = $"{dirPath}{fileName}";
 			var formatName = format.FormatName.ToLower();
@@ -89,6 +89,12 @@ namespace Energizet.VideoStriming.Upload
 		{
 			var fileInfo = new FileInfo(filePath);
 			return fileInfo.Length;
+		}
+
+		public class UploadCallbacks
+		{
+			public delegate Task SaveFiles(SaveQuality saveQuality);
+			public delegate Task SaveQuality(int quality, Format format, long size);
 		}
 	}
 }

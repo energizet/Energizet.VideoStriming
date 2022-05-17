@@ -33,7 +33,7 @@ namespace Energizet.VideoStriming.Controllers
 			var bufferSize = 1000000L;
 			var buffer = new byte[bufferSize];
 
-			var fileInfo = new FileInfo($"files/{id}/source.MP4");
+			var fileInfo = new FileInfo($"files/{id}/{quality}.MP4");
 			using var fileStream = fileInfo.OpenRead();
 			var totalSize = fileStream.Length;
 

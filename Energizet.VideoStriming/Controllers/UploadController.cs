@@ -30,14 +30,11 @@ namespace Energizet.VideoStriming.Controllers
 			try
 			{
 				var videoId = Guid.NewGuid();
-				var saveFiles = await _uploadFile.UploadAsync(file, videoId);
+				var uploadCallback = await _uploadFile.UploadAsync(file, videoId);
 				await _uploadDb.UploadAsync(videoId, name, discription);
 
-				ThreadPool.QueueUserWorkItem((state) =>
-					saveFiles(async (quality, format, size) => await _uploadDb.SaveFileQuality(videoId, quality, format, size))
-				);/**/
-
-				//await saveFiles(async (quality, format, size) => await _uploadDb.SaveFileQuality(videoId, quality, format, size));
+				ThreadPool.QueueUserWorkItem(async (state) => await DoBackgroud(videoId, uploadCallback));
+				//await DoBackgroud(videoId, uploadCallback);
 
 				return UploadResult.OK();
 			}
@@ -45,6 +42,17 @@ namespace Energizet.VideoStriming.Controllers
 			{
 				return UploadResult.Error(ex.Message, ex.StackTrace);
 			}
+		}
+
+		private async Task DoBackgroud(Guid videoId, UploadFileController.UploadCallbacks.SaveFiles callback)
+		{
+			var task = callback?.Invoke((quality, format, size) => _uploadDb.SaveFileQuality(videoId, quality, format, size));
+			if (task == null)
+			{
+				return;
+			}
+
+			await task;
 		}
 	}
 }

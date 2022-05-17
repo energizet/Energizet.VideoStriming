@@ -78,7 +78,6 @@ namespace Energizet.VideoStriming.DB
 
 				Size = video.Size,
 				Quality = video.Quality.Quality1,
-				//Parts = GetParts(video.Size, _blockSize),
 			};
 		}
 
@@ -97,28 +96,6 @@ namespace Energizet.VideoStriming.DB
 				Qualitys = group.Select(item => item.Quality.Quality1)
 			};
 			return videoInfo;
-		}
-
-		private IEnumerable<FilePart> GetParts(long size, int blockSize)
-		{
-			var blockCount = size / blockSize;
-			var parts = Enumerable.Range(0, (int)blockCount).Select(item => new FilePart
-			{
-				Index = item,
-				Size = blockSize,
-			}).ToList();
-
-			var lastBlockSize = size - blockCount * blockSize;
-
-			if (lastBlockSize > 0)
-			{
-				parts.Add(new FilePart
-				{
-					Index = parts.Count,
-					Size = lastBlockSize,
-				});
-			}
-			return parts;
 		}
 	}
 }
