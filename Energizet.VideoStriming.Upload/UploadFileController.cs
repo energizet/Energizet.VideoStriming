@@ -71,7 +71,8 @@ namespace Energizet.VideoStriming.Upload
 		}
 		private async Task Convert(string dirPath, string fileName, Format format, Point resolution, int fps, Func<int, Format, long, Task> saveQuality)
 		{
-
+			var filePath = $"{dirPath}{fileName}";
+			var formatName = format.FormatName.ToLower();
 
 
 			var saveToPath = GetFilePath(dirPath, resolution.Y, formatName);
@@ -79,65 +80,15 @@ namespace Energizet.VideoStriming.Upload
 			await saveQuality(resolution.Y, format, GetSize(saveToPath));
 		}
 
-		private async Task<int> ConvertSegment(
-			string dirPath,
-			string sourceName,
-			Format format,
-			Point resolution,
-			int fps,
-			TimeSpan from,
-			TimeSpan lenght
-		)
+		private string GetFilePath(string dir, int quality, string format)
 		{
-			var sourcePath = $"{dirPath}{sourceName}";
-			var formatName = format.FormatName.ToLower();
-			var quality = resolution.Y;
-
-			await FileHelper.SaveFileAsync(sourcePath, , resolution, fps, , )
+			return $"{dir}{quality}.{format}";
 		}
 
-		private IEnumerable<Segment> GetSegments(long timeMs, int sizeSegmentInSec = 60)
+		private long GetSize(string filePath)
 		{
-			var size = timeMs * 10_000;
-			var segmentSize = sizeSegmentInSec * 10_000_000;
-			var segmentCount = size / segmentSize;
-
-			var segments = Enumerable.Range(0, (int)segmentCount).Select(item => new Segment
-			{
-				From = new TimeSpan(item * 10_000_000),
-				Lenght = new TimeSpan(segmentSize),
-			}).ToList();
-
-			var lastSegmentSize = size - segmentCount * segmentSize;
-
-			if (lastSegmentSize > 0)
-			{
-				segments.Add(new Segment
-				{
-					From = new TimeSpan(segmentCount * segmentSize),
-					Lenght = new TimeSpan(segmentSize),
-				});
-			}
-			return segments;
-		}
-
-		private string GetFilePath(string dir, int quality, int segment, string format)
-		{
-			var path = $"{dir}{quality}/{segment}.{format}";
-			Directory.CreateDirectory(path);
-			return path;
-		}
-
-		private long GetSize(string sourcePath)
-		{
-			var fileInfo = new FileInfo(sourcePath);
+			var fileInfo = new FileInfo(filePath);
 			return fileInfo.Length;
-		}
-
-		private class Segment
-		{
-			public TimeSpan From { get; set; }
-			public TimeSpan Lenght { get; set; }
 		}
 	}
 }

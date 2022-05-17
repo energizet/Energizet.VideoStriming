@@ -78,8 +78,6 @@ namespace Energizet.VideoStriming.Upload.Helpers
 			string saveToPath,
 			Point resolution,
 			int fps,
-			TimeSpan from,
-			TimeSpan lenght,
 			OperationStartEventHandler startHandler = null,
 			OperationDoneEventHandler doneHandler = null,
 			OperationProgressEventHandler progressHandler = null
@@ -92,9 +90,6 @@ namespace Energizet.VideoStriming.Upload.Helpers
 			converter.VideoResolutionX = resolution.X.ToString();
 			converter.VideoResolutionY = resolution.Y.ToString();
 			converter.VideoFPS = fps.ToString();
-
-			converter.FromTime = from;
-			converter.LengthTime = lenght;
 
 			converter.VideoCodec = "h264";
 			converter.AudioCodec = "aac";
