@@ -49,21 +49,5 @@ namespace Energizet.VideoStriming.Controllers
 				return FileInfoResult.Error(ex.Message, ex.StackTrace);
 			}
 		}
-
-		[HttpGet]
-		[Route("{id}/{quality}")]
-		public async Task<BaseResult> Get(Guid id, int quality)
-		{
-			try
-			{
-				var video = await _fileInfo.GetVideoAsync(id, quality);
-
-				return FileInfoResult.OK(video);
-			}
-			catch (Exception ex)
-			{
-				return FileInfoResult.Error(ex.Message, ex.StackTrace);
-			}
-		}
 	}
 }

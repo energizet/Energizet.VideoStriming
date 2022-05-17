@@ -12,12 +12,10 @@ namespace Energizet.VideoStriming.DB
 	public class VideoInfoController : IVideoInfoController
 	{
 		private readonly EntitiesContext _db;
-		private readonly int _blockSize;
 
-		public VideoInfoController(EntitiesContext db, int blockSize = 1 * 1024 * 1024)
+		public VideoInfoController(EntitiesContext db)
 		{
 			_db = db;
-			_blockSize = blockSize;
 		}
 
 		public async Task<IEnumerable<VideoInfo>> GetVideosAsync()
@@ -52,35 +50,6 @@ namespace Energizet.VideoStriming.DB
 			return videosInfo;
 		}
 
-		public async Task<VideoInfoForDownload> GetVideoAsync(Guid id, int quality)
-		{
-			var video = await _db.VideoQualitys
-				.Include(item => item.Video)
-				.Include(item => item.Quality)
-				.Include(item => item.Format)
-				.Where(item => item.VideoId == id)
-				.Where(item => item.Quality.Quality1 == quality)
-				.FirstOrDefaultAsync();
-
-			if (video == null)
-			{
-				throw new NullReferenceException("Video not found");
-			}
-
-			return new VideoInfoForDownload
-			{
-				Id = video.VideoId,
-				Name = video.Video.Name,
-				Discription = video.Video.Discription,
-				Status = video.Video.Status,
-				Views = video.Video.Views,
-				Format = video.Format.Format1,
-
-				Size = video.Size,
-				Quality = video.Quality.Quality1,
-			};
-		}
-
 		private VideoInfo GetVideoInfo(Guid key, IEnumerable<VideoQuality> group)
 		{
 			var video = group.First();
@@ -93,7 +62,11 @@ namespace Energizet.VideoStriming.DB
 				Views = video.Video.Views,
 				Format = video.Format.Format1,
 
-				Qualitys = group.Select(item => item.Quality.Quality1)
+				Qualitys = group.Select(item => new QualityInfo
+				{
+					Quality = item.Quality.Quality1,
+					Size = item.Size,
+				})
 			};
 			return videoInfo;
 		}

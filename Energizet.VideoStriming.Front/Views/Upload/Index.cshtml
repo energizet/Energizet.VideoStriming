@@ -1,0 +1,39 @@
+﻿@{
+	ViewData["Title"] = "Upload";
+}
+<style>
+	.video {
+	}
+
+		.video > a {
+			text-decoration: none;
+			color: black;
+		}
+
+		.video .title {
+		}
+
+		.video .discription {
+			color: gray;
+		}
+</style>
+
+<div id="root" class="d-flex flex-column gap-2"></div>
+<script>
+	let root = document.getElementById('root');
+
+	(async () => {
+		let videos = await fetch('//localhost:7099/api/VideoInfo').then(d => d.json());
+		root.addCustomElements(
+			videos.data.map(video => ['div', {
+				class: ['video', 'form-control'], children: [
+					['a', {
+						href: `/watch?id=${video.id}`, children: [
+							['div', {class: ['title'], innerText: video.name}],
+							['div', {class: ['discription'], innerText: video.discription}],
+						]
+					}]
+				]
+			}]));
+	})();
+</script>

@@ -11,6 +11,5 @@ namespace Energizet.VideoStriming.DB
 	{
 		public Task<IEnumerable<VideoInfo>> GetVideosAsync();
 		public Task<VideoInfo> GetVideoAsync(Guid id);
-		public Task<VideoInfoForDownload> GetVideoAsync(Guid id, int quality);
 	}
 }

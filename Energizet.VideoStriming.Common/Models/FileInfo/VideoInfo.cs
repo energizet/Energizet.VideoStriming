@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace Energizet.VideoStriming.Common.Models.FileInfo
 {
 
-	public class VideoInfo: BaseVideoInfo
+	public class VideoInfo : BaseVideoInfo
 	{
-		public IEnumerable<int> Qualitys { get; set; }
+		public IEnumerable<QualityInfo> Qualitys { get; set; }
 	}
 }

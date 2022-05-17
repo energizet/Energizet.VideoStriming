@@ -6,6 +6,5 @@ namespace Energizet.VideoStriming.Download
 {
 	public interface IDownloadController
 	{
-		public Task<FilePartData> GetFilePartAsync(Guid id, VideoInfoForDownload videoInfo, int partIndex);
 	}
 }

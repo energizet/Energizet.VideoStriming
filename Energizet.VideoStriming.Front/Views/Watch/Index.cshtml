@@ -3,35 +3,57 @@
 }
 
 <div id="root"></div>
-<script>
-
+<script type="module">
+	import {ReactivityJs} from "/js/ReactivityJs.js";
 	let root = document.getElementById('root');
 	let id;
+
 
 	(async () => {
 		let params = new URLSearchParams(location.search);
 		id = params.get('id');
 
 		let video = await fetch(`//localhost:7099/api/VideoInfo/${id}`).then(d => d.json());
+
+		document.title = video.data.name;
 		let videoTag = createVideoTag(video.data);
+		videoTag.isPlaying = function (){
+			return this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2;
+		};
+
 		render(video.data, videoTag);
 	})();
 
 	function changeQuality({ target }, videoTag){
 		let time = videoTag.currentTime;
+		let isPlaying = videoTag.isPlaying();
 		let source = videoTag.querySelector('source');
 		source.src = `//localhost:7099/api/Download/${id}/${target.value}`;
 		videoTag.load();
-		videoTag.play();
+		if	(isPlaying) {
+			videoTag.play();
+		}
 		videoTag.currentTime = time;
+	}
+
+	function getUrl(video){
+		if	(video.qualitys.length <= 0){
+			return '';
+		}
+
+		let qualitys = getQualitys(video);
+
+		return `//localhost:7099/api/Download/${id}/${qualitys[0]}`;
+	}
+
+	function getQualitys(video){
+		return video.qualitys.map(item => item.quality).sort((l, r) => l > r ? 1 : -1);
 	}
 
 	function render(video, videoTag){
 		root.addCustomElement('div', {class: ['d-flex', 'flex-column', 'gap-2'], children: [
-			//['video', {class: 'bg-black', controls: true, src: URL.createObjectURL(mediaSource)}],
 			videoTag,
-			//['video', {class: 'bg-black', controls: true, src: 'https://localhost:7046/videos/source1.mp4'}],
-			['select', {on: {change: (e) => changeQuality(e, videoTag)}, children: video.qualitys.map(quality => 
+			['select', {on: {change: (e) => changeQuality(e, videoTag)}, children: getQualitys(video).map(quality =>
 				['option', {id: quality, innerText: quality}]
 			)}],
 			['div', {innerText: video.name}],
@@ -41,7 +63,7 @@
 
 	function createVideoTag(video){
 		return document.createCustomElement('video', {class: 'bg-black', controls: true, children: [
-				['source', {src: (video.qualitys.length > 0 ? `//localhost:7099/api/Download/${id}/${video.qualitys.sort((l, r) => l>r?1:-1)[0]}` : ''), type: 'video/mp4'}],
+				['source', {src: getUrl(video), type: 'video/mp4'}],
 			]});
 	}
 </script>

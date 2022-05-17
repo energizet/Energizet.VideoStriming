@@ -20,10 +20,10 @@ builder.Services.AddDbContext<EntitiesContext>(provider =>
 	ServiceLifetime.Singleton
 );
 
-builder.Services.AddScoped<IUploadFileController, UploadFileController>((provider) => new UploadFileController($"files/"));
+builder.Services.AddScoped<IVideoInfoController, VideoInfoController>((provider) => new VideoInfoController((EntitiesContext)provider.GetService(typeof(EntitiesContext))!));
 builder.Services.AddScoped<IUploadDBController, UploadDBController>((provider) => new UploadDBController((EntitiesContext)provider.GetService(typeof(EntitiesContext))!));
-builder.Services.AddScoped<IVideoInfoController, VideoInfoController>((provider) => new VideoInfoController((EntitiesContext)provider.GetService(typeof(EntitiesContext))!, 1 * 1024 * 1024));
-builder.Services.AddScoped<IDownloadController, DownloadFileController>((provider) => new DownloadFileController($"files/", 1 * 1024 * 1024));
+builder.Services.AddScoped<IUploadFileController, UploadFileController>((provider) => new UploadFileController($"files/"));
+builder.Services.AddScoped<IDownloadController, DownloadFileController>((provider) => new DownloadFileController($"files/"));
 
 FileHelper.Init("energizet@yandex.ru", "ec7907f9df02db5a1c51f6c91d4d9cb4");
 
