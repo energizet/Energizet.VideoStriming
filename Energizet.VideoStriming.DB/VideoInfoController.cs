@@ -78,7 +78,7 @@ namespace Energizet.VideoStriming.DB
 
 				Size = video.Size,
 				Quality = video.Quality.Quality1,
-				Parts = GetParts(video.Size, _blockSize),
+				//Parts = GetParts(video.Size, _blockSize),
 			};
 		}
 
@@ -115,7 +115,7 @@ namespace Energizet.VideoStriming.DB
 				parts.Add(new FilePart
 				{
 					Index = parts.Count,
-					Size = (int)lastBlockSize,
+					Size = lastBlockSize,
 				});
 			}
 			return parts;

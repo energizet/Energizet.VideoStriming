@@ -6,44 +6,60 @@
 <script>
 
 	let root = document.getElementById('root');
-	let mediaSource = new MediaSource();
-	let videoSource;
+	let mediaSource;
+	let audioSource, videoSource;
 	let id;
 
 	(async () => {
 		let params = new URLSearchParams(location.search);
 		id = params.get('id');
 
+		mediaSource = new MediaSource();
+		mediaSource.addEventListener('sourceopen', mediaOpened);
 		let video = await fetch(`//localhost:7099/api/VideoInfo/${id}`).then(d => d.json());
 		render(video.data);
-
-		loadVideo(id, 360);
 	})();
+
+	async function mediaOpened(){
+		mediaSource.removeEventListener("sourceopen", mediaOpened);
+
+		await loadVideo(id, 360);
+	}
 
 	function render(video){
 		root.addCustomElement('div', {class: ['d-flex', 'flex-column', 'gap-2'], children: [
 			//['video', {class: 'bg-black', controls: true, src: URL.createObjectURL(mediaSource)}],
-			['video', {class: 'bg-black', controls: true, src: 'https://localhost:7046/videos/source.mp4'}],
+			['video', {class: 'bg-black', controls: true, src: 'https://localhost:7099/api/Download/ce7b37b9-e5f0-4193-a7c3-8e43ec4d85e3/360/1'}],
+			//['video', {class: 'bg-black', controls: true, src: 'https://localhost:7046/videos/source1.mp4'}],
 			['div', {innerText: video.name}],
 			['div', {innerText: video.discription}],
 		]});
 	}
 
 	async function loadVideo(id, quality){
-		let video = await fetch(`//localhost:7099/api/VideoInfo/${id}/${quality}`).then(d => d.json());
-		video = video.data;
+		//let video = await fetch(`//localhost:7099/api/VideoInfo/${id}/${quality}`).then(d => d.json());
+		//video = video.data;
 
-		videoSource = mediaSource.addSourceBuffer('video/mp4;codecs="avc1.42E01E, mp4a.40.2"');
+		let video = {
+			parts: [0,1,2,3]
+		};
+		//mediaSource.duration = 10;
+		//audioSource = mediaSource.addSourceBuffer('audio/mp4;codecs=mp4a.40.2');
+		//videoSource = mediaSource.addSourceBuffer('video/mp4;codecs=avc1.640020');
+		videoSource = mediaSource.addSourceBuffer('application/x-mpegURL');
+		//await saveToSourceBuffer(`https://bitdash-a.akamaihd.net/content/MI201109210084_1/video/720_2400000/dash/init.mp4`);
 		for(let part of video.parts){
+			//await saveToSourceBuffer(`https://bitdash-a.akamaihd.net/content/MI201109210084_1/video/720_2400000/dash/segment_${part}.m4s`);
 			//await saveToSourceBuffer(`//localhost:7099/api/Download/${id}/${quality}/${part.index}`);
 		}
+
 		//await saveToSourceBuffer(`//localhost:7099/api/Download/${id}/${quality}/0`);
-		await saveToSourceBuffer('https://localhost:7046/videos/source.mp4');
+		//await saveToSourceBuffer('https://localhost:7046/videos/source.mp4');
 	}
 
-	async function saveToSourceBuffer(url){
+	async function saveToSourceBuffer(url, source){
 		let buffer = await fetch(url).then(d => d.arrayBuffer());
-		videoSource.appendBuffer(buffer);
+		source.appendBuffer(new Uint8Array(buffer));
 	}
 
 	function videoOnload({ target }){

@@ -9,6 +9,6 @@ namespace Energizet.VideoStriming.Common.Models.FileInfo
 	public class FilePart
 	{
 		public int Index { get; set; }
-		public int Size { get; set; }
+		public long Size { get; set; }
 	}
 }

@@ -58,6 +58,15 @@ namespace Energizet.VideoStriming.Controllers
 			{
 				var video = await _fileInfo.GetVideoAsync(id, quality);
 
+				var path = $"files/{id}/{quality}/";
+				var dirInfo = new DirectoryInfo(path);
+
+				video.Parts = dirInfo.EnumerateFiles().Select(file => new FilePart
+				{
+					Index = int.Parse(file.Name.Split('.')[0]),
+					Size = file.Length,
+				}).OrderBy(item => item.Index);
+
 				return FileInfoResult.OK(video);
 			}
 			catch (Exception ex)

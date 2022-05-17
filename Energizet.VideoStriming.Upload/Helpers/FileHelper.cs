@@ -91,7 +91,7 @@ namespace Energizet.VideoStriming.Upload.Helpers
 			converter.VideoResolutionY = resolution.Y.ToString();
 			converter.VideoFPS = fps.ToString();
 
-			converter.VideoCodec = "h264";
+			converter.VideoCodec = "libx264";
 			converter.AudioCodec = "aac";
 
 			if (startHandler != null)
