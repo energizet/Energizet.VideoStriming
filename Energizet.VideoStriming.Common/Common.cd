@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Energizet.VideoStriming.Common.Models.Download.DownloadResult">
+    <Position X="5.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Models\Download\DownloadResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Energizet.VideoStriming.Common.Models.Download.FilePartData">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Models\Download\FilePartData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Energizet.VideoStriming.Common.Models.FileInfo.FileInfoResult">
+    <Position X="3.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Models\FileInfo\FileInfoResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Energizet.VideoStriming.Common.Models.FileInfo.FilePart">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Models\FileInfo\FilePart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Energizet.VideoStriming.Common.Models.FileInfo.QualityInfo">
+    <Position X="11.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\FileInfo\QualityInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Energizet.VideoStriming.Common.Models.FileInfo.VideoInfo">
+    <Position X="7.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\FileInfo\VideoInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Energizet.VideoStriming.Common.Models.Upload.UploadResult">
+    <Position X="5.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Models\Upload\UploadResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Energizet.VideoStriming.Common.Models.BaseResult">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABACAAAAgAAAAAAAAAAAAAAJAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\BaseResult.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Energizet.VideoStriming.Common.Models.BaseVideoInfo">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAEAAAAAAAAAAAAAAQAAAgAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Models\BaseVideoInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Energizet.VideoStriming.Common.Models.Format">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAgACAAAECAAgAAAAA=</HashCode>
+      <FileName>Models\Format.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Energizet.VideoStriming.Common.Models.Meta">
+    <Position X="9.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Models\Meta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Energizet.VideoStriming.Common.Models.Status">
+    <Position X="11.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAABAAAAACA=</HashCode>
+      <FileName>Models\Status.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

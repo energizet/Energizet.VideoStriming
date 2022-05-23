@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Energizet.VideoStriming.DB.DB.EntitiesContext">
+    <Position X="6.5" Y="2.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAQAQAAACAAAIAAAAEAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>DB\EntitiesContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Energizet.VideoStriming.DB.DB.Format">
+    <Position X="9" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>DB\Format.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Energizet.VideoStriming.DB.DB.Quality">
+    <Position X="10.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACCAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DB\Quality.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Energizet.VideoStriming.DB.DB.Video">
+    <Position X="9" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAEAAAAAAAAAAAAAQQAAAAAAAAAAIQAAAAAAAA=</HashCode>
+      <FileName>DB\Video.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Energizet.VideoStriming.DB.DB.VideoQuality">
+    <Position X="4.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAwABAAAAAAAAAAIgAAAAAAIAAAAAAAAg=</HashCode>
+      <FileName>DB\VideoQuality.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Energizet.VideoStriming.DB.UploadDBController" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAACAAAAAAAAAAAAAAAAAAAAAQAAAIAAAAAAA=</HashCode>
+      <FileName>UploadDBController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Energizet.VideoStriming.DB.VideoInfoController" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ABAAgAIAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VideoInfoController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Energizet.VideoStriming.DB.IUploadDBController">
+    <Position X="12.75" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAQAAAIAAAAAAA=</HashCode>
+      <FileName>IUploadDBController.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Energizet.VideoStriming.DB.IVideoInfoController">
+    <Position X="12.75" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IVideoInfoController.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Energizet.VideoStriming.DB.Status">
+    <Position X="12.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Status.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

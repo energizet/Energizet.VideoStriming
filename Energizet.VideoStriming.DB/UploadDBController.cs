@@ -16,7 +16,7 @@ namespace Energizet.VideoStriming.DB
 			_db = db;
 		}
 
-		public async Task<bool> UploadAsync(Guid videoId, string name, string discription)
+		public async Task<Video> UploadAsync(Guid videoId, string name, string discription)
 		{
 			var video = new Video
 			{
@@ -24,13 +24,13 @@ namespace Energizet.VideoStriming.DB
 				Name = name,
 				Discription = discription,
 				Views = 0,
-				Status = 0,
+				Status = (int)Status.Loaded,
 			};
 
 			await _db.Videos.AddAsync(video);
 			await _db.SaveChangesAsync();
 
-			return true;
+			return video;
 		}
 
 		public async Task SaveFileQuality(Guid videoId, int quality, Common.Models.Format format, long size)
@@ -70,6 +70,21 @@ namespace Energizet.VideoStriming.DB
 			await _db.VideoQualitys.AddAsync(videoQuality);
 
 			await _db.SaveChangesAsync();
+		}
+
+		public async Task<bool> SetDoneStatus(Guid videoId)
+		{
+			var video = await _db.Videos.FindAsync(videoId);
+			if (video == null)
+			{
+				return false;
+			}
+
+			video.Status = (int)Status.Saved;
+			_db.Videos.Update(video);
+
+			await _db.SaveChangesAsync();
+			return true;
 		}
 	}
 }

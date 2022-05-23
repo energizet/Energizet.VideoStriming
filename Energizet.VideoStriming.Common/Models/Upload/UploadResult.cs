@@ -13,6 +13,11 @@ namespace Energizet.VideoStriming.Common.Models.Upload
 			return new UploadResult().SetMeta(Status.Ok);
 		}
 
+		public static BaseResult OK(object data = default)
+		{
+			return new UploadResult().SetMeta(Status.Ok).SetData(data);
+		}
+
 		public static BaseResult Error(string message, string stackTrace = null)
 		{
 			return new UploadResult().SetMeta(Status.Error, message: message, stackTrace: stackTrace);

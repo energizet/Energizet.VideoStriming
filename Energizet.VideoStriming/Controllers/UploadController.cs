@@ -31,12 +31,12 @@ namespace Energizet.VideoStriming.Controllers
 			{
 				var videoId = Guid.NewGuid();
 				var uploadCallback = await _uploadFile.UploadAsync(file, videoId);
-				await _uploadDb.UploadAsync(videoId, name, discription);
+				var video = await _uploadDb.UploadAsync(videoId, name, discription);
 
 				ThreadPool.QueueUserWorkItem(async (state) => await DoBackgroud(videoId, uploadCallback));
 				//await DoBackgroud(videoId, uploadCallback);
 
-				return UploadResult.OK();
+				return UploadResult.OK(video);
 			}
 			catch (Exception ex)
 			{
@@ -53,6 +53,8 @@ namespace Energizet.VideoStriming.Controllers
 			}
 
 			await task;
+
+			await _uploadDb.SetDoneStatus(videoId);
 		}
 	}
 }

@@ -37,13 +37,13 @@
 		});
 	};
 
-	Element.prototype.addCustomElement = function (tag, options = null) {
+	Element.prototype.addCustomElement = function (tag, options = undefined) {
 		let child = document.createCustomElement(tag, options);
 		this.appendChild(child);
 		return child;
 	};
 
-	Document.prototype.createCustomElement = function (tag, options = null) {
+	Document.prototype.createCustomElement = function (tag, options = undefined) {
 		if (tag instanceof Element) {
 			return tag;
 		}

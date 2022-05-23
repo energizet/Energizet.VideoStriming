@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Energizet.VideoStriming.Upload.Helpers.FileHelper">
+    <Position X="4.5" Y="1.25" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="Energizet.VideoStriming.Upload.Helpers.FileHelper.OperationOutputEventHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Helpers\FileHelper.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="Energizet.VideoStriming.Upload.Helpers.FileHelper.OperationProgressEventHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Helpers\FileHelper.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="Energizet.VideoStriming.Upload.Helpers.FileHelper.OperationDoneEventHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Helpers\FileHelper.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="Energizet.VideoStriming.Upload.Helpers.FileHelper.OperationStartEventHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Helpers\FileHelper.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="Energizet.VideoStriming.Upload.Helpers.FileHelper.OperationClosedEventHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Helpers\FileHelper.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAA4QAAAAAAAAAAgAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Helpers\FileHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Energizet.VideoStriming.Upload.UploadFileController" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="1.25" Width="2" />
+    <NestedTypes>
+      <Class Name="Energizet.VideoStriming.Upload.UploadFileController.UploadCallbacks" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>UploadFileController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACBACAAIAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>UploadFileController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Energizet.VideoStriming.Upload.IUploadFileController">
+    <Position X="8.5" Y="1.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>IUploadFileController.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

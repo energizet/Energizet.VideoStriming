@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 /Energizet.VideoStriming/files/*
 /Energizet.VideoStriming.Front/wwwroot/videos/*
+/published

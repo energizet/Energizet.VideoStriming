@@ -1,39 +1,69 @@
 ﻿@{
 	ViewData["Title"] = "Upload";
 }
-<style>
-	.video {
-	}
 
-		.video > a {
-			text-decoration: none;
-			color: black;
-		}
-
-		.video .title {
-		}
-
-		.video .discription {
-			color: gray;
-		}
-</style>
-
-<div id="root" class="d-flex flex-column gap-2"></div>
+<div id="root" class="d-flex flex-column gap-2">
+	<label for="name">Name</label>
+	<input type="text" id='name' class='form-control' />
+	<label for="description">Description</label>
+	<input type="text" id='description' class='form-control' />
+	<label for="file">File</label>
+	<input type="file" id='file' class='form-control' />
+	<button id='save' class='btn btn-secondary'>Upload</button>
+</div>
 <script>
 	let root = document.getElementById('root');
+	let status = root.addCustomElement('div');
+	let uploadedQuilitys = root.addCustomElement('div');
 
 	(async () => {
-		let videos = await fetch('//localhost:7099/api/VideoInfo').then(d => d.json());
-		root.addCustomElements(
-			videos.data.map(video => ['div', {
-				class: ['video', 'form-control'], children: [
-					['a', {
-						href: `/watch?id=${video.id}`, children: [
-							['div', {class: ['title'], innerText: video.name}],
-							['div', {class: ['discription'], innerText: video.discription}],
-						]
-					}]
-				]
-			}]));
+		document.getElementById('save').addEventListener('click', save);
 	})();
+
+	async function save(){
+		let name = document.getElementById('name');
+		let description = document.getElementById('description');
+		let file = document.getElementById('file');
+
+		let data = new FormData();
+		data.append('file', file.files[0]);
+		let video = await fetch(`//localhost:7099/api/Upload?name=${name.value}&discription=${description.value}`, {
+			method: "post",
+			body: data
+		}).then(d => d.json());
+
+		if (video?.errors !== undefined){
+			let messages = Object.values(video.errors).map(item => item.reduce((sum, item) => sum + '; ' + item));
+			status.innerText = messages.reduce((sum, item) => sum + "\n" + item);
+			return;
+		}
+
+		if	(video?.meta?.status !== 1){
+			status.innerText = video.meta.message;
+			return;
+		}
+
+		await loadStatus(video.data);
+	}
+
+	async function loadStatus(video){
+		status.innerText = 'File uploading';
+
+		let loaded = false;
+		while(!loaded){
+			await new Promise((res, rej) => setTimeout(res, 5000));
+			let videoInfo = await fetch(`//localhost:7099/api/VideoInfo/${video.id}`).then(d => d.json());
+
+			loaded = loaded || videoInfo?.data.status > 0;
+			let qualitys = videoInfo.data?.qualitys.map(item=>item.quality).sort((l, r) => l > r ? 1 : -1);
+
+			if (loaded){
+				status.innerText = 'Done';
+			}
+
+			if (qualitys != null){
+				uploadedQuilitys.innerText = 'Loaded: ' + qualitys.reduce((sum, item) => sum + ', ' + item,'');
+			}
+		}
+	}
 </script>

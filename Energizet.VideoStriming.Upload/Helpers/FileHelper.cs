@@ -47,6 +47,11 @@ namespace Energizet.VideoStriming.Upload.Helpers
 			using var converter = new VideoConverter(User, Key, Path);
 			var mediaProperties = await converter.Open(filePath);
 
+			if (mediaProperties.Format == null || mediaProperties.Streams == null)
+			{
+				return new Common.Models.Format();
+			}
+
 			var formatName = mediaProperties.Format.FormatName.ToLower();
 			var videoStream = mediaProperties.Streams.Stream.FirstOrDefault(stream => stream.CodecType == "video");
 			var isWidth = int.TryParse(videoStream?.Width, out var width);
