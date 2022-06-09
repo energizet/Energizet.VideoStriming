@@ -37,7 +37,22 @@
   <Class Name="Energizet.VideoStriming.Upload.UploadFileController" BaseTypeListCollapsed="true">
     <Position X="6.25" Y="1.25" Width="2" />
     <NestedTypes>
-      <Class Name="Energizet.VideoStriming.Upload.UploadFileController.UploadCallbacks" Collapsed="true">
+      <Class Name="Energizet.VideoStriming.Upload.UploadFileController.UploadCallbacks">
+        <Compartments>
+          <Compartment Name="Nested Types" Collapsed="false" />
+        </Compartments>
+        <NestedTypes>
+          <Delegate Name="Energizet.VideoStriming.Upload.UploadFileController.UploadCallbacks.SaveFiles" Collapsed="true">
+            <TypeIdentifier>
+              <NewMemberFileName>UploadFileController.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Delegate>
+          <Delegate Name="Energizet.VideoStriming.Upload.UploadFileController.UploadCallbacks.SaveQuality" Collapsed="true">
+            <TypeIdentifier>
+              <NewMemberFileName>UploadFileController.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Delegate>
+        </NestedTypes>
         <TypeIdentifier>
           <NewMemberFileName>UploadFileController.cs</NewMemberFileName>
         </TypeIdentifier>

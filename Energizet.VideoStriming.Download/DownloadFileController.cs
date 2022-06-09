@@ -12,5 +12,10 @@ namespace Energizet.VideoStriming.Download
 		{
 			_path = path;
 		}
+
+		public byte[] GetBytes(Guid id, int quality, int from, int to)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

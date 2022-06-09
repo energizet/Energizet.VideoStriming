@@ -6,5 +6,6 @@ namespace Energizet.VideoStriming.Download
 {
 	public interface IDownloadController
 	{
+		public byte[] GetBytes(Guid id, int quality, int from, int to);
 	}
 }

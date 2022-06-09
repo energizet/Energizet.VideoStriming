@@ -54,8 +54,8 @@
 			await new Promise((res, rej) => setTimeout(res, 5000));
 			let videoInfo = await fetch(`//localhost:7099/api/VideoInfo/${video.id}`).then(d => d.json());
 
-			loaded = loaded || videoInfo?.data.status > 0;
-			let qualitys = videoInfo.data?.qualitys.map(item=>item.quality).sort((l, r) => l > r ? 1 : -1);
+			loaded = loaded || videoInfo?.data?.status > 0;
+			let qualitys = videoInfo?.data?.qualitys.map(item=>item.quality).sort((l, r) => l > r ? 1 : -1);
 
 			if (loaded){
 				status.innerText = 'Done';

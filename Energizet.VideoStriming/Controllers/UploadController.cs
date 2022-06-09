@@ -25,6 +25,7 @@ namespace Energizet.VideoStriming.Controllers
 
 		[HttpPost]
 		[Consumes("multipart/form-data")]
+		[RequestFormLimits(ValueLengthLimit = int.MaxValue, MultipartBodyLengthLimit = int.MaxValue)]
 		public async Task<BaseResult> Post(IFormFile file, string name, string discription)
 		{
 			try

@@ -41,7 +41,7 @@
       <HashCode>AAAAgAAAACAAAAAAAAAAAAAAAAAAAAAQAAAIAAAAAAA=</HashCode>
       <FileName>UploadDBController.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Energizet.VideoStriming.DB.VideoInfoController" BaseTypeListCollapsed="true">
     <Position X="10.75" Y="4.5" Width="1.75" />
@@ -49,7 +49,7 @@
       <HashCode>ABAAgAIAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>VideoInfoController.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="Energizet.VideoStriming.DB.IUploadDBController">
     <Position X="12.75" Y="2.25" Width="1.75" />
